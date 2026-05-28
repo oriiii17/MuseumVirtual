@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museum Virtual Alat Permainan Tradisional</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">3D</div>
+      <div>
+        <strong>Museum Virtual</strong>
+        <span>Alat Permainan Tradisional</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#koleksi">Koleksi</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="Cari objek..." autocomplete="off" />
+    </div>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Museum Sonobudoyo Unit I · Yogyakarta</p>
+        <h1>Museum Virtual<br>Alat Permainan Tradisional</h1>
+        <p>
+          Jelajahi objek permainan tradisional hasil observasi kelompok. Tampilan koleksi memakai asset gambar agar lebih ringan, sedangkan model 3D interaktif dibuka saat pengguna memilih tombol Lihat Model 3D.
+          Setiap objek dilengkapi metadata, klasifikasi, dan informasi digitalisasi.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#koleksi">Jelajahi Koleksi</a>
+          <button class="secondary-btn" id="openFirstModel">Lihat Model 3D</button>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Ilustrasi museum virtual">
+        <div class="gallery-room">
+          <div class="pedestal one"></div>
+          <div class="pedestal two"></div>
+          <div class="pedestal three"></div>
+          <div class="object-icon cube"></div>
+          <div class="object-icon sphere"></div>
+          <div class="object-icon rod"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters" aria-label="Filter koleksi">
+      <strong>Filter Kategori</strong>
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <select id="filterBentuk" aria-label="Filter bentuk">
+        <option value="">Bentuk</option>
+      </select>
+      <select id="filterBahan" aria-label="Filter bahan">
+        <option value="">Bahan</option>
+      </select>
+      <select id="filterFungsi" aria-label="Filter fungsi">
+        <option value="">Fungsi</option>
+      </select>
+      <select id="filterCara" aria-label="Filter cara bermain">
+        <option value="">Cara Bermain</option>
+      </select>
+      <button class="reset-btn" id="resetFilter">Reset Filter</button>
+    </section>
+
+    <section id="koleksi" class="collection-section">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">Koleksi Digital 3D</p>
+          <h2>Koleksi Alat Permainan Tradisional</h2>
+        </div>
+        <label class="sort-label">Urutkan:
+          <select id="sortSelect">
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+            <option value="fungsi">Fungsi</option>
+          </select>
+        </label>
+      </div>
+      <div id="cards" class="cards"></div>
+      <p id="emptyState" class="empty-state" hidden>Tidak ada koleksi yang cocok dengan filter.</p>
+    </section>
+
+    <section class="stats" aria-label="Statistik koleksi">
+      <article>
+        <span class="stat-icon">▦</span>
+        <strong id="totalKoleksi">0</strong>
+        <p>Total Koleksi</p>
+      </article>
+      <article>
+        <span class="stat-icon">⌖</span>
+        <strong>Yogyakarta</strong>
+        <p>Asal Daerah</p>
+      </article>
+      <article>
+        <span class="stat-icon">▰</span>
+        <strong id="totalBentuk">0</strong>
+        <p>Kategori Bentuk</p>
+      </article>
+      <article>
+        <span class="stat-icon">◎</span>
+        <strong id="totalModel">0</strong>
+        <p>Model 3D</p>
+      </article>
+    </section>
+
+    <section id="tentang" class="about">
+      <h2>Tentang Digitalisasi</h2>
+      <p>
+        Website ini menampilkan data hasil observasi kelompok dalam bentuk museum virtual. Kartu koleksi pada tampilan awal menggunakan gambar dari folder <code>assets/images</code>, sehingga halaman lebih cepat dibuka. Model 3D format <code>.glb</code> dari folder <code>assets/models</code> baru dimuat saat pengguna menekan tombol <strong>Lihat Model 3D</strong>.
+      </p>
+    </section>
+  </main>
+
+  <dialog id="modelDialog" class="model-dialog">
+    <div class="dialog-head">
+      <div>
+        <h3 id="dialogTitle">Nama Objek</h3>
+        <p id="dialogSubtitle">Fungsi · 3D Modeling</p>
+      </div>
+      <button id="closeDialog" class="close-btn" aria-label="Tutup">×</button>
+    </div>
+    <div class="dialog-body">
+      <div class="viewer-wrap">
+        <model-viewer id="viewer" camera-controls auto-rotate shadow-intensity="0.8" exposure="1" tone-mapping="neutral" ar ar-modes="webxr scene-viewer quick-look">
+          <div class="viewer-fallback" slot="poster">Memuat model 3D...</div>
+        </model-viewer>
+        <small>Putar otomatis aktif. Seret mouse/kursor untuk memutar manual.</small>
+      </div>
+      <dl class="metadata" id="dialogMeta"></dl>
+    </div>
+  </dialog>
+
+  <script src="data.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>
