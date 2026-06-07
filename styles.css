@@ -138,10 +138,6 @@ select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(1
 .card-image{width:100%;height:100%;object-fit:contain;display:block;border-radius:10px;filter:drop-shadow(0 16px 20px rgba(72,50,30,.20));transition:transform .4s var(--ease)}
 .card:hover .card-image{transform:scale(1.06) rotate(-1deg)}
 .badge{position:absolute;left:12px;top:12px;z-index:2;background:hsl(var(--cat,32) 52% 93%);border:1px solid hsl(var(--cat,32) 40% 80%);padding:5px 12px;border-radius:999px;font-weight:700;font-size:11.5px;color:hsl(var(--cat,32) 42% 30%);backdrop-filter:blur(4px);box-shadow:0 4px 10px rgba(99,72,42,.1)}
-.heart{position:absolute;right:10px;top:10px;z-index:2;display:grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(255,251,244,.86);font-size:20px;line-height:1;color:#b08b63;cursor:pointer;backdrop-filter:blur(4px);transition:transform .2s var(--ease),color .2s,background .2s,box-shadow .2s}
-.heart:hover{transform:scale(1.12);color:#c1452f;box-shadow:0 6px 16px rgba(99,72,42,.16)}
-.heart.active{color:#d23b27;border-color:#e9bdb3;background:#fdeeea}
-.heart:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(199,154,91,.4)}
 .card-body{padding:16px 17px 17px;display:flex;flex-direction:column;gap:11px;flex:1}
 .card h3{margin:0;font-size:19px;font-weight:600;letter-spacing:-.005em}
 .meta-row{display:flex;gap:8px;flex-wrap:wrap;color:#6a5d50;font-size:12.5px}

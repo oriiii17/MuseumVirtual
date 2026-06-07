@@ -34,14 +34,6 @@ const ICONS = {
   fungsi: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>'
 };
 
-// Favorit disimpan di localStorage agar bertahan saat halaman dimuat ulang.
-const FAV_KEY = 'museum-favorites';
-let favorites = new Set();
-try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); } catch(e){ favorites = new Set(); }
-function saveFavorites(){
-  try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch(e){}
-}
-
 // Warna pastel konsisten per kategori bentuk (hue diturunkan dari teksnya).
 function categoryHue(str){
   let h = 0;
@@ -98,13 +90,11 @@ function renderCards(){
 
   for(const item of items){
     const previewImage = getPreviewImage(item);
-    const isFav = favorites.has(item.id);
     const card = document.createElement('article');
     card.className = 'card';
     card.innerHTML = `
       <div class="card-preview" aria-label="Pratinjau gambar ${escapeHtml(item.nama)}">
         <span class="badge" style="--cat:${categoryHue(item.bentuk)}">${escapeHtml(item.bentuk)}</span>
-        <button class="heart${isFav ? ' active' : ''}" type="button" data-fav="${escapeHtml(item.id)}" aria-label="Tandai favorit" aria-pressed="${isFav}">${isFav ? '♥' : '♡'}</button>
         <img
           class="card-image"
           src="${escapeHtml(previewImage)}"
@@ -187,17 +177,6 @@ function setupEvents(){
     renderCards();
   });
   cardsEl.addEventListener('click', e => {
-    const favBtn = e.target.closest('[data-fav]');
-    if(favBtn){
-      const id = favBtn.dataset.fav;
-      if(favorites.has(id)) favorites.delete(id); else favorites.add(id);
-      saveFavorites();
-      const on = favorites.has(id);
-      favBtn.classList.toggle('active', on);
-      favBtn.textContent = on ? '♥' : '♡';
-      favBtn.setAttribute('aria-pressed', on);
-      return;
-    }
     const btn = e.target.closest('[data-id]');
     if(btn) openModel(btn.dataset.id);
   });
