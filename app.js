@@ -23,6 +23,31 @@ const dialogTitle = document.getElementById('dialogTitle');
 const dialogSubtitle = document.getElementById('dialogSubtitle');
 const dialogMeta = document.getElementById('dialogMeta');
 const openFirstModel = document.getElementById('openFirstModel');
+const navToggle = document.getElementById('navToggle');
+const siteHeader = document.querySelector('.site-header');
+const siteNav = document.querySelector('.site-header nav');
+const allFilterBtn = document.querySelector('[data-filter="all"]');
+
+// Ikon garis (feather-style) untuk baris metadata kartu.
+const ICONS = {
+  bahan: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>',
+  fungsi: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>'
+};
+
+// Favorit disimpan di localStorage agar bertahan saat halaman dimuat ulang.
+const FAV_KEY = 'museum-favorites';
+let favorites = new Set();
+try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); } catch(e){ favorites = new Set(); }
+function saveFavorites(){
+  try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch(e){}
+}
+
+// Warna pastel konsisten per kategori bentuk (hue diturunkan dari teksnya).
+function categoryHue(str){
+  let h = 0;
+  for(const ch of String(str)) h = (h * 31 + ch.charCodeAt(0)) % 360;
+  return h;
+}
 
 function uniqueValues(key){
   return [...new Set(koleksi.map(item => item[key]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'id'));
@@ -73,12 +98,13 @@ function renderCards(){
 
   for(const item of items){
     const previewImage = getPreviewImage(item);
+    const isFav = favorites.has(item.id);
     const card = document.createElement('article');
     card.className = 'card';
     card.innerHTML = `
       <div class="card-preview" aria-label="Pratinjau gambar ${escapeHtml(item.nama)}">
-        <span class="badge">${escapeHtml(item.bentuk)}</span>
-        <span class="heart">♡</span>
+        <span class="badge" style="--cat:${categoryHue(item.bentuk)}">${escapeHtml(item.bentuk)}</span>
+        <button class="heart${isFav ? ' active' : ''}" type="button" data-fav="${escapeHtml(item.id)}" aria-label="Tandai favorit" aria-pressed="${isFav}">${isFav ? '♥' : '♡'}</button>
         <img
           class="card-image"
           src="${escapeHtml(previewImage)}"
@@ -92,8 +118,8 @@ function renderCards(){
       <div class="card-body">
         <h3>${escapeHtml(item.nama)}</h3>
         <div class="meta-row">
-          <span>▣ ${escapeHtml(item.bahan)}</span>
-          <span>◇ ${escapeHtml(item.fungsi)}</span>
+          <span>${ICONS.bahan} ${escapeHtml(item.bahan)}</span>
+          <span>${ICONS.fungsi} ${escapeHtml(item.fungsi)}</span>
         </div>
         <p class="desc">${escapeHtml(item.deskripsi)}</p>
         <button class="detail-btn" type="button" data-id="${escapeHtml(item.id)}">Lihat Model 3D <span>›</span></button>
@@ -161,9 +187,44 @@ function setupEvents(){
     renderCards();
   });
   cardsEl.addEventListener('click', e => {
+    const favBtn = e.target.closest('[data-fav]');
+    if(favBtn){
+      const id = favBtn.dataset.fav;
+      if(favorites.has(id)) favorites.delete(id); else favorites.add(id);
+      saveFavorites();
+      const on = favorites.has(id);
+      favBtn.classList.toggle('active', on);
+      favBtn.textContent = on ? '♥' : '♡';
+      favBtn.setAttribute('aria-pressed', on);
+      return;
+    }
     const btn = e.target.closest('[data-id]');
     if(btn) openModel(btn.dataset.id);
   });
+
+  if(allFilterBtn){
+    allFilterBtn.addEventListener('click', () => {
+      Object.assign(state, {bentuk:'', bahan:'', fungsi:'', cara:''});
+      filterBentuk.value = '';
+      filterBahan.value = '';
+      filterFungsi.value = '';
+      filterCara.value = '';
+      renderCards();
+    });
+  }
+
+  if(navToggle){
+    navToggle.addEventListener('click', () => {
+      const open = siteHeader.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+  }
+  if(siteNav){
+    siteNav.addEventListener('click', e => {
+      if(e.target.tagName === 'A') siteHeader.classList.remove('nav-open');
+    });
+  }
+
   closeDialog.addEventListener('click', closeModel);
   dialog.addEventListener('click', e => {
     const rect = dialog.getBoundingClientRect();

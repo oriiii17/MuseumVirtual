@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%233b2c1d'/><text x='32' y='43' font-size='26' font-family='Arial' font-weight='bold' fill='%23f4dcb4' text-anchor='middle'>3D</text></svg>" />
   <title>Museum Virtual Alat Permainan Tradisional</title>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=4" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
@@ -22,8 +26,12 @@
       <a href="#tentang">Tentang</a>
     </nav>
     <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <input id="searchInput" type="search" placeholder="Cari objek..." autocomplete="off" />
     </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Buka menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </header>
 
   <main>
@@ -40,14 +48,13 @@
           <button class="secondary-btn" id="openFirstModel">Lihat Model 3D</button>
         </div>
       </div>
-      <div class="hero-panel" aria-label="Ilustrasi museum virtual">
-        <div class="gallery-room">
-          <div class="pedestal one"></div>
-          <div class="pedestal two"></div>
-          <div class="pedestal three"></div>
-          <div class="object-icon cube"></div>
-          <div class="object-icon sphere"></div>
-          <div class="object-icon rod"></div>
+      <div class="hero-panel" aria-label="Kolase koleksi museum virtual">
+        <div class="hero-collage">
+          <span class="hc-glow" aria-hidden="true"></span>
+          <figure class="hc-item hc-a"><img src="assets/images/gasingan.png" alt="Gasingan" loading="lazy" decoding="async"></figure>
+          <figure class="hc-item hc-b"><img src="assets/images/yoyo.png" alt="Yoyo" loading="lazy" decoding="async"></figure>
+          <figure class="hc-item hc-c"><img src="assets/images/egrang-bathok.png" alt="Egrang Bathok" loading="lazy" decoding="async"></figure>
+          <span class="hc-tag">Koleksi 3D Interaktif</span>
         </div>
       </div>
     </section>
@@ -90,22 +97,22 @@
 
     <section class="stats" aria-label="Statistik koleksi">
       <article>
-        <span class="stat-icon">▦</span>
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
         <strong id="totalKoleksi">0</strong>
         <p>Total Koleksi</p>
       </article>
       <article>
-        <span class="stat-icon">⌖</span>
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
         <strong>Yogyakarta</strong>
         <p>Asal Daerah</p>
       </article>
       <article>
-        <span class="stat-icon">▰</span>
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="M13.5 13.5h7v7h-7z"/></svg></span>
         <strong id="totalBentuk">0</strong>
         <p>Kategori Bentuk</p>
       </article>
       <article>
-        <span class="stat-icon">◎</span>
+        <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg></span>
         <strong id="totalModel">0</strong>
         <p>Model 3D</p>
       </article>
@@ -114,10 +121,48 @@
     <section id="tentang" class="about">
       <h2>Tentang Digitalisasi</h2>
       <p>
-        Website ini menampilkan data hasil observasi kelompok dalam bentuk museum virtual. Kartu koleksi pada tampilan awal menggunakan gambar dari folder <code>assets/images</code>, sehingga halaman lebih cepat dibuka. Model 3D format <code>.glb</code> dari folder <code>assets/models</code> baru dimuat saat pengguna menekan tombol <strong>Lihat Model 3D</strong>.
+        Museum virtual ini menghadirkan koleksi alat permainan tradisional hasil observasi kelompok agar dapat dinikmati siapa saja, kapan saja. Setiap objek ditampilkan lewat foto yang ringan dibuka, lengkap dengan informasi bahan, bentuk, fungsi, dan cara bermainnya.
+      </p>
+      <p>
+        Ingin melihat lebih dekat? Tekan tombol <strong>Lihat Model 3D</strong> pada koleksi untuk memutar objek dari segala sudut, seolah-olah memegangnya langsung. Lewat cara ini, warisan permainan tradisional tetap terjaga dan tetap dekat dengan generasi masa kini.
       </p>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <div class="logo" aria-hidden="true">3D</div>
+          <div>
+            <strong>Museum Virtual</strong>
+            <span>Alat Permainan Tradisional</span>
+          </div>
+        </div>
+        <p>Proyek digitalisasi koleksi permainan tradisional berbasis observasi kelompok di Museum Sonobudoyo Unit I, Yogyakarta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="#beranda">Beranda</a>
+        <a href="#koleksi">Koleksi</a>
+        <a href="#tentang">Tentang</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sumber</h4>
+        <span>Museum Sonobudoyo Unit I</span>
+        <span>Yogyakarta, Indonesia</span>
+      </div>
+      <div class="footer-col">
+        <h4>Kelompok</h4>
+        <span>Nama Kelompok / Anggota</span>
+        <span>Mata Kuliah Digital Humanities</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Museum Virtual Alat Permainan Tradisional</span>
+      <span>Dibuat untuk tujuan edukasi</span>
+    </div>
+  </footer>
 
   <dialog id="modelDialog" class="model-dialog">
     <div class="dialog-head">
@@ -139,6 +184,6 @@
   </dialog>
 
   <script src="data.js?v=2"></script>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
