@@ -193,6 +193,10 @@ select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(1
 .dialog-body{display:grid;grid-template-columns:1.45fr .9fr;gap:26px;padding:26px 30px 30px}
 .viewer-wrap model-viewer{width:100%;height:min(68vh,580px);border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle,#fffdf9 0,#f1e7da 100%);box-shadow:inset 0 2px 12px rgba(99,72,42,.06)}
 .viewer-wrap small{display:block;color:var(--muted);margin-top:12px;font-size:12.5px}
+.dialog-sejarah{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.dialog-sejarah:empty{display:none}
+.dialog-sejarah h4{margin:0 0 8px;font-size:14px;font-weight:800;color:var(--accent-deep)}
+.dialog-sejarah p{margin:0;font-size:14px;line-height:1.7;color:#4a3d31;text-align:justify}
 .viewer-fallback{height:100%;display:grid;place-items:center;color:#6d6258}
 .metadata{margin:0;display:grid;grid-template-columns:0.8fr 1.1fr;border-top:1px solid var(--line)}
 .metadata dt,.metadata dd{margin:0;padding:14px 4px;border-bottom:1px solid var(--line);line-height:1.45}

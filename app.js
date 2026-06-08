@@ -22,6 +22,7 @@ const viewer = document.getElementById('viewer');
 const dialogTitle = document.getElementById('dialogTitle');
 const dialogSubtitle = document.getElementById('dialogSubtitle');
 const dialogMeta = document.getElementById('dialogMeta');
+const dialogSejarah = document.getElementById('dialogSejarah');
 const openFirstModel = document.getElementById('openFirstModel');
 const navToggle = document.getElementById('navToggle');
 const siteHeader = document.querySelector('.site-header');
@@ -145,9 +146,12 @@ function openModel(id){
     <dt>Cara Penggunaan</dt><dd>${escapeHtml(item.cara)}</dd>
     <dt>Asal Daerah</dt><dd>${escapeHtml(item.asal)}</dd>
     <dt>Lokasi Observasi</dt><dd>${escapeHtml(item.lokasi)}</dd>
-    <dt>Potensi Digitalisasi</dt><dd>${escapeHtml(item.digitalisasi)}</dd>
     <dt>Keterangan</dt><dd>${escapeHtml(item.deskripsi)}</dd>
   `;
+
+  dialogSejarah.innerHTML = item.sejarah
+    ? `<h4>Sejarah</h4><p>${escapeHtml(item.sejarah)}</p>`
+    : '';
 
   if(typeof dialog.showModal === 'function') dialog.showModal();
   else dialog.setAttribute('open','');

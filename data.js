@@ -11,7 +11,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Permainan tradisional menggunakan dua tempurung kelapa sebagai pijakan yang dihubungkan tali."
+    "deskripsi": "Permainan tradisional menggunakan dua tempurung kelapa sebagai pijakan yang dihubungkan tali.",
+    "sejarah": "Egrang bathok merupakan versi sederhana dari egrang bambu yang memanfaatkan limbah tempurung (bathok) kelapa, bahan yang melimpah di pedesaan Jawa. Permainan ini berkembang di kalangan anak-anak sebagai sarana melatih keseimbangan dan kesabaran dengan biaya yang sangat murah. Tradisi bermain egrang telah lama dikenal di berbagai daerah Indonesia dan kini sering ditampilkan dalam lomba permainan tradisional saat peringatan hari kemerdekaan."
   },
   {
     "id": "gasingan",
@@ -25,7 +26,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Mainan putar tradisional berbahan bambu/kayu dengan mekanisme tali."
+    "deskripsi": "Mainan putar tradisional berbahan bambu/kayu dengan mekanisme tali.",
+    "sejarah": "Gasing termasuk salah satu permainan tertua yang tersebar hampir di seluruh Nusantara dengan beragam nama dan bentuk, seperti gangsing, panggal, atau begasing. Pada masa lampau gasing tidak hanya menjadi mainan anak, tetapi juga dipertandingkan antarkampung untuk mengadu daya putar dan ketahanan. Di Jawa, gasing biasa dibuat dari kayu keras atau bambu dan dimainkan dengan melilitkan tali pada porosnya sebelum dilempar."
   },
   {
     "id": "kasti",
@@ -39,7 +41,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Satu set permainan kasti berupa tongkat pemukul kayu dan bola."
+    "deskripsi": "Satu set permainan kasti berupa tongkat pemukul kayu dan bola.",
+    "sejarah": "Kasti adalah permainan bola pukul beregu yang masuk ke Indonesia pada masa kolonial Belanda dan memiliki kemiripan dengan permainan rounders. Sejak awal abad ke-20 permainan ini menyebar melalui sekolah dan menjadi bagian dari pelajaran olahraga (penjas) hingga sekarang. Kasti menekankan kerja sama tim, ketangkasan memukul, berlari, dan menangkap bola."
   },
   {
     "id": "ketapel",
@@ -53,7 +56,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Ketapel tradisional dengan gagang bercabang, karet, dan bantalan pelontar."
+    "deskripsi": "Ketapel tradisional dengan gagang bercabang, karet, dan bantalan pelontar.",
+    "sejarah": "Ketapel awalnya merupakan alat berburu burung dan hama yang banyak digunakan masyarakat pedesaan sebelum berkembang menjadi mainan anak-anak. Bentuk bercabang (huruf Y) memanfaatkan dahan pohon, sementara karet pelontar mulai umum dipakai seiring tersedianya karet ban. Selain untuk bermain, ketapel juga melatih kemampuan membidik dan koordinasi mata-tangan."
   },
   {
     "id": "kodok-kodokan",
@@ -67,7 +71,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Mainan bunyi berbentuk kodok-kodokan berwarna merah dan hijau."
+    "deskripsi": "Mainan bunyi berbentuk kodok-kodokan berwarna merah dan hijau.",
+    "sejarah": "Kodok-kodokan merupakan mainan bunyi rakyat yang meniru suara katak menggunakan mekanisme sederhana berupa pegas atau lidah kayu/logam. Mainan semacam ini banyak dijual pengrajin keliling dan di pasar malam sebagai hiburan murah bagi anak-anak. Bentuk dan suaranya yang lucu menjadikannya populer sekaligus mengenalkan anak pada bunyi-bunyian alam."
   },
   {
     "id": "othok-othok",
@@ -81,7 +86,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Miniatur kapal tradisional otok-otok berwarna biru."
+    "deskripsi": "Miniatur kapal tradisional otok-otok berwarna biru.",
+    "sejarah": "Perahu otok-otok (dikenal luas sebagai pop-pop boat) adalah mainan kapal dari kaleng tipis yang bergerak di air dengan tenaga uap sederhana dari nyala lilin kecil. Mainan ini populer sejak awal abad ke-20 dan menyebar ke berbagai negara, termasuk Indonesia, sebagai mainan kaki lima yang murah. Namanya berasal dari bunyi 'otok-otok' yang dihasilkan mesin uapnya saat melaju."
   },
   {
     "id": "paser",
@@ -95,7 +101,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Objek paser dengan badan bulat, jarum depan, dan ekor sirip."
+    "deskripsi": "Objek paser dengan badan bulat, jarum depan, dan ekor sirip.",
+    "sejarah": "Paser merupakan permainan lempar bidik yang menggunakan anak panah kecil bersirip agar melaju lurus dan menancap pada sasaran. Permainan membidik seperti ini berakar dari keterampilan berburu dan menjadi sarana melatih fokus serta ketepatan. Dalam perkembangannya paser dimainkan sebagai lomba ketangkasan dengan papan sasaran, mirip dengan permainan panah/lempar lainnya."
   },
   {
     "id": "peluit-burung",
@@ -109,7 +116,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Peluit tradisional berbahan bambu dengan lubang suara."
+    "deskripsi": "Peluit tradisional berbahan bambu dengan lubang suara.",
+    "sejarah": "Peluit burung adalah mainan tiup yang dirancang untuk menirukan kicauan burung dengan memanfaatkan rongga udara pada bambu atau kayu. Alat bunyi semacam ini sudah lama dikenal masyarakat agraris yang akrab dengan suara satwa di sekitarnya. Selain sebagai mainan, peluit burung kadang dipakai untuk memikat burung atau sekadar hiburan."
   },
   {
     "id": "peluit-burung-perkutut",
@@ -123,7 +131,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Peluit burung perkutut dengan bentuk tabung bambu dan lubang nada."
+    "deskripsi": "Peluit burung perkutut dengan bentuk tabung bambu dan lubang nada.",
+    "sejarah": "Peluit ini secara khusus menirukan suara burung perkutut yang dalam budaya Jawa memiliki kedudukan istimewa dan kerap dikaitkan dengan ketenangan serta status sosial pemiliknya. Memelihara dan mendengarkan suara perkutut menjadi tradisi yang dihargai, sehingga muncul pula mainan peluit yang meniru suaranya. Alat ini memperlihatkan kedekatan masyarakat Jawa dengan budaya merawat dan mengagumi suara burung."
   },
   {
     "id": "senapan-mainan",
@@ -137,7 +146,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Senapan mainan kayu berwarna merah dengan pola hitam dan tali."
+    "deskripsi": "Senapan mainan kayu berwarna merah dengan pola hitam dan tali.",
+    "sejarah": "Senapan mainan kayu, yang juga dikenal sebagai bedil-bedilan, merupakan replika senjata yang dibuat pengrajin untuk permainan anak. Mainan ini banyak diproduksi pada masa setelah kemerdekaan ketika semangat perjuangan masih kuat, sehingga sering dipakai dalam permainan perang-perangan. Versi sederhananya juga dibuat dari pelepah pisang atau bambu yang dapat menembakkan biji atau kertas."
   },
   {
     "id": "seruling-bambu",
@@ -151,7 +161,8 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Seruling bambu tradisional dengan beberapa lubang nada."
+    "deskripsi": "Seruling bambu tradisional dengan beberapa lubang nada.",
+    "sejarah": "Seruling atau suling bambu termasuk alat musik tiup tertua di Nusantara dan menjadi bagian penting dalam berbagai kesenian daerah seperti gamelan Jawa dan musik Sunda. Bambu dipilih karena mudah didapat dan menghasilkan nada yang lembut dan merdu. Selain sebagai alat musik, seruling juga dimainkan para penggembala dan petani untuk mengisi waktu, sehingga lekat dengan kehidupan pedesaan."
   },
   {
     "id": "yoyo",
@@ -165,6 +176,7 @@ const koleksi = [
     "asal": "Yogyakarta",
     "lokasi": "Museum Sonobudoyo Unit I",
     "digitalisasi": "3D Modeling (.glb)",
-    "deskripsi": "Yoyo kayu tradisional dengan tali dan pegangan kecil."
+    "deskripsi": "Yoyo kayu tradisional dengan tali dan pegangan kecil.",
+    "sejarah": "Yoyo merupakan salah satu mainan tertua di dunia dengan jejak yang dapat ditelusuri hingga peradaban Yunani dan Tiongkok kuno. Mainan ini menyebar ke seluruh dunia dan menjadi sangat populer secara global pada abad ke-20. Versi tradisional di Indonesia umumnya dibuat dari kayu dengan tali yang dililitkan pada poros, dan dimainkan untuk melatih ketangkasan serta koordinasi tangan."
   }
 ];
